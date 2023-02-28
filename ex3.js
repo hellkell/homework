@@ -25,50 +25,30 @@ products.push(new Product('ljjk', 13, 50, 'imyuyuytuytjgabc'))
 
 
 function _filter(prod, arg, fltr, value) {
-    // console.log(prod)
-    let result = []
-    prod.forEach(function(element) {
-        if (fltr == '=') {
-            if (element[arg] == value) {
-                result.push(element)
-            }
-        }
-        else if (fltr == '>') {
-            if (element[arg] > value) {
-                result.push(element)
-            }
-        }
-        else if (fltr == '<') {
-            if (element[arg] < value) {
-                result.push(element)
-            }
-        }
-        else if (fltr == '>=') {
-            if (element[arg] >= value) {
-                result.push(element)
-            }
-        }
-        else if (fltr == '<=') {
-            if (element[arg] <= value) {
-                result.push(element)
-            }
-        }
-        else if (fltr == 'contains') {
-            if (element[arg].includes(value)) {
-                result.push(element)
-            }
-        }
-        else if (fltr == 'starts') {
-            if (element[arg].slice(0, value.length) == value) {
-                result.push(element)
-            }
-        }
-        else if (fltr == 'ends') {
-            if (element[arg].slice(-value.length) == value) {
-                result.push(element)
-            }
-        }
-    })
+    if (fltr == '=') {
+        return prod.filter(element => element[arg] == value);
+    }
+    else if (fltr == '>') {
+        return prod.filter(element => element[arg] > value);
+    }
+    else if (fltr == '<') {
+        return prod.filter(element => element[arg] < value);
+    }
+    else if (fltr == '>=') {
+        return prod.filter(element => element[arg] >= value);
+    }
+    else if (fltr == '<=') {
+        return prod.filter(element => element[arg] <= value);
+    }
+    else if (fltr == 'contains') {
+        return prod.filter(element => element[arg].includes(value));
+    }
+    else if (fltr == 'starts') {
+        return prod.filter(element => element[arg].slice(0, value.length) == value);
+    }
+    else if (fltr == 'ends') {
+        return prod.filter(element => element[arg].slice(-value.length) == value);
+    }
     return result;
 }
 
